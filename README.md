@@ -70,8 +70,13 @@ Activar el entorno virtual:
 pip install -r requirements.txt
 ```
 
-**Nota:** Si tienes problemas instalando PyAudio en Windows, puedes descargar el wheel precompilado desde [aquí](https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyaudio) y luego:
+**Nota:** Si tienes problemas instalando PyAudio en Windows, puedes descargar el wheel precompilado apropiado para tu versión de Python desde [aquí](https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyaudio). Descarga el archivo que corresponda a tu versión de Python y arquitectura (32 o 64 bits) y luego:
 
+```bash
+pip install nombre_del_archivo_descargado.whl
+```
+
+Por ejemplo, para Python 3.9 de 64 bits:
 ```bash
 pip install PyAudio‑0.2.11‑cp39‑cp39‑win_amd64.whl
 ```

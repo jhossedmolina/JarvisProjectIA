@@ -4,11 +4,11 @@ JARVIS - Just A Rather Very Intelligent System
 A simple voice assistant in Python
 """
 
-import os
 import sys
 import datetime
 import webbrowser
 import platform
+from urllib.parse import quote
 
 try:
     import pyttsx3
@@ -27,7 +27,8 @@ class Jarvis:
         
         # Configure voice properties
         voices = self.engine.getProperty('voices')
-        self.engine.setProperty('voice', voices[0].id)
+        if voices:
+            self.engine.setProperty('voice', voices[0].id)
         self.engine.setProperty('rate', 150)
         
     def speak(self, text):
@@ -69,7 +70,8 @@ class Jarvis:
     
     def search_web(self, query):
         """Search on the web"""
-        url = f"https://www.google.com/search?q={query}"
+        encoded_query = quote(query)
+        url = f"https://www.google.com/search?q={encoded_query}"
         webbrowser.open(url)
         self.speak(f"Aquí está lo que encontré sobre {query}")
     
